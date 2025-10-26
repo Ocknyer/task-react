@@ -17,4 +17,10 @@
 */
 .task-done {
   /* 구현하세요. */
+  color: #b2b2b2;
+  text-decoration: line-through;
+}
+
+[type='checkbox'] {
+  accent-color: #b2b2b2;
 }
