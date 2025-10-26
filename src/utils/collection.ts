@@ -20,6 +20,44 @@ export function countDone(tasks: SimpleTask[]): Counters {
   return { total, done, pending };
 }
 
+export const testArray: SimpleTask[] = [
+  {
+    id: '1',
+    title: 'title1',
+    done: false,
+    priority: 'low',
+  },
+  {
+    id: '2',
+    title: 'title2',
+    done: false,
+    priority: 'medium',
+  },
+  {
+    id: '3',
+    title: 'title3',
+    done: false,
+    priority: 'high',
+  },
+  {
+    id: '4',
+    title: 'title4',
+    done: true,
+    priority: 'medium',
+  },
+  {
+    id: '5',
+    title: 'title5',
+    done: true,
+    priority: 'high',
+  },
+  {
+    id: '6',
+    title: 'title6',
+    done: true,
+  },
+];
+
 // TODO 01: (기초) 모든 task 의 title 만 배열로 반환하세요. lodash 나 Array.prototype.map 중 아무거나 사용 가능.
 export function pluckTitles(tasks: SimpleTask[]): string[] {
   // 예: [{title: 'a'}, {title: 'b'}] -> ['a','b']
@@ -33,12 +71,11 @@ export function highPriorityFirst(tasks: SimpleTask[]): SimpleTask[] {
   const order = { high: 0, medium: 1, low: 2 } as const;
   // lodash.sortBy 또는 Array.prototype.sort 를 사용할 수 있습니다.
   // 구현하세요.
-  return tasks;
 }
 
 // TODO 03: (기초) done 상태로 groupBy 하여 { true: SimpleTask[]; false: SimpleTask[] } 형태를 만드세요.
 export function groupByDone(tasks: SimpleTask[]): Record<'true' | 'false', SimpleTask[]> {
   // 힌트: lodash.groupBy 사용 가능
   // 구현하세요.
-  return { true: [], false: [] };
+  return _.groupBy(tasks, 'done') as Record<'true' | 'false', SimpleTask[]>;
 }
